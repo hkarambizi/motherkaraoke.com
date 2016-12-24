@@ -12,7 +12,7 @@ module.exports = function(gulp, plugins, config) {
 
 		plugins.browsersync.notify(message.jekyllBuild);
 
-		return plugins.cp.spawn('jekyll', ['build'], {stdio: 'inherit'})
+		return plugins.cp.spawn('bundle', ['exec', 'jekyll', 'build', '--config=_config.yml'] {stdio: 'inherit'})
 	    .on('close', done);
 	};
 
