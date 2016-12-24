@@ -1,2 +1,8 @@
-# starter-kit
-A simple Jekyll startup kit for web projects hosted on Github Pages.
+# Mother Karaoke Search Site
+
+A searchable index of karaoke songs for Mother in Atlanta, GA.
+
+The site uses:
+
+- Jekyll
+- lunr.js
