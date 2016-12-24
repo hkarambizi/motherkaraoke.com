@@ -1,0 +1,18 @@
+url: "" # the base hostname & protocol for your site
+baseurl: "" # the subpath of your site, e.g. /blog/
+
+title:
+description:
+logo:
+#social:
+  #links:
+    #- Uncomment and put social links here
+
+exclude: ["_assets", "gulp", ".gitignore", "gulpfile.js", "package.json", "node_modules", "README.md", "Gemfile"]
+keep_files: ["assets"]
+
+# collections
+
+# defaults
+
+# gems
