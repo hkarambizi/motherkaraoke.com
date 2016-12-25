@@ -4,6 +4,8 @@ baseurl: "" # the subpath of your site, e.g. /blog/
 title: Mother Karaoke
 description: A searchable index of karaoke songs for Mother in Atlanta, GA.
 logo:
+blurb: Check out the songs Mother Karaoke has to offer. We have a wide selection right at your fingertips. So what are you waiting for - get singing!
+
 #social:
   #links:
     #- Uncomment and put social links here
