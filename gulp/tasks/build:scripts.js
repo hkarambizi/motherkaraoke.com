@@ -13,8 +13,8 @@ module.exports = function(gulp, plugins, config) {
 		  //.pipe(plugins.sourcemaps.init({loadMaps: true}))
 		  // add transformation tasks to the pipeline here
 		  .pipe(plugins.uglify())
-		  //.pipe(plugins(sourcemaps.write('./')))
-		  .pipe(gulp.dest('./assets'))
-			.pipe(gulp.dest('./_site/assets'));
+			//.pipe to './assets' and './_site/assets'
+			.pipe(gulp.dest(config.styles.appdest))
+			.pipe(gulp.dest(config.styles.jekylldest));
 	}
 };
