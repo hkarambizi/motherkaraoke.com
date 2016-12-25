@@ -1,8 +1,8 @@
 url: "" # the base hostname & protocol for your site
 baseurl: "" # the subpath of your site, e.g. /blog/
 
-title:
-description:
+title: Mother Karaoke
+description: A searchable index of karaoke songs for Mother in Atlanta, GA.
 logo:
 #social:
   #links:
