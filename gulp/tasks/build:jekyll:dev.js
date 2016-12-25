@@ -12,8 +12,8 @@ module.exports = function(gulp, plugins, config) {
 
 		plugins.browsersync.notify(message.jekyllBuild);
 
-		return plugins.cp.spawn('bundle', ['exec', 'jekyll', 'build', '--config=_config.yml,_config-dev.yml'], {stdio: 'inherit'})
-	    .on('close', done);
+		return plugins.cp.spawn('bundle', ['exec', 'jekyll', 'build', '--config=_config.yml,_config-dev.yml'], { stdio: 'inherit' })
+		.on('close', done);
 	};
 
 };
