@@ -26,16 +26,6 @@ $breakpoints: (
   xl: 1125px
 );
 
-// Typi
-$typi: (
-  null: (16px, 1.5),
-  small: 18px,
-  medium: 18px,
-  large: 20px,
-  xl: 20px
-);
-// If you use breakpoint
-$typi-breakpoint: breakpoint;
 
 // Animations
 $transition__duration--base: 150ms;
