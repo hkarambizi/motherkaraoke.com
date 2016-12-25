@@ -1,6 +1,6 @@
 var config = {};
 
-config.app    = '/'; // The files Jekyll will work on
+config.app    = './'; // The files Jekyll will work on
 config.dist   = '_site/'; // The resulting static site
 config.assets = '_assets/'; // The files Gulp will work on
 config.nodedir = 'node_modules'; // npm directory for any external linked files
