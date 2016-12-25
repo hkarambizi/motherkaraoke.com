@@ -1,3 +1,9 @@
+$header-background: $color__gray--dark;
+$header-color: $color__primary--alt;
+$header-border-color: $color__primary;
+
 .header {
-  background-color: red;
+  background-color: $header-background;
+  color: $header-color;
+  border-bottom: 10px solid $header-border-color;
 }
