@@ -38,7 +38,7 @@ config.svg = {
 config.scripts = {
   src: config.assets + 'scripts/**/*.js',
   jekylldest: config.dist + 'assets',
-  appdest: config.app + 'assets/images'
+  appdest: config.app + 'assets'
 };
 
 config.styles = {
