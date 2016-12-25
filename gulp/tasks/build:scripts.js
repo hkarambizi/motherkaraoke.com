@@ -3,7 +3,7 @@ module.exports = function(gulp, plugins, config) {
 	return function() {
 		// set up the browserify instance on a task basis
 		var b = plugins.browserify({
-			entries: './app/_assets/scripts/main.js',
+			entries: './_assets/scripts/main.js',
 			debug: true
 		});
 
