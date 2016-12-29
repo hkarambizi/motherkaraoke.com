@@ -93,13 +93,13 @@
     //background-color: $color__gray--light;
     //color: $color__gray;
 
-    /*&:nth-child(odd) {
+    &:nth-child(odd) {
       background-color: $color__gray--light;
       color: $color__gray;
     }
     &:nth-child(even) {
       background-color: $color__gray--dark;
       color: #fff;
-    }*/
+    }
   }
 }
