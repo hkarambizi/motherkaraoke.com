@@ -85,6 +85,7 @@
   }
 
   &__title {
+    list-style: none;
     margin: 0;
     padding: vr(.5);
     font-family: $font__family--sans;
