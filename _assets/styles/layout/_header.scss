@@ -4,6 +4,23 @@ $header-border-color: $color__primary;
 
 .header {
   background-color: $header-background;
-  color: $header-color;
+  background-image: url(images/logo.png);
+  background-repeat: no-repeat;
+  background-position: left center;
+
+  height: 100px;
+  padding-left: 100px;
+  padding-right: 10px;
   border-bottom: 10px solid $header-border-color;
+
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  align-items: center;
+
+  &__heading {
+    color: $header-color;
+    text-align: right;
+
+  }
 }
