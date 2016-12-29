@@ -2,4 +2,8 @@
 layout: default
 ---
 {% include header.html %}
-{% include about.html %}
+<main class="main__container">
+  {% include about.html %}
+  {% include search-form.html %}
+  <div id="js-search_results" class="search"></div>
+</main>
