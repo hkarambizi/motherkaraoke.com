@@ -4,3 +4,4 @@
  *
  * require('./FILENAME.js');
  */
+require('./_search.js');
