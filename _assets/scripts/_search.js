@@ -14,7 +14,7 @@ window.idx = lunr(function () {
 
 // Get the generated search_data.json file so lunr.js can search it locally.
 window.search_data = $.ajax({
-  url: '/search_data.json',
+  url: './search_data.json',
   type: "GET", // default is GET but you can use other verbs based on your needs.
   dataType: "json", // specify the dataType for future reference
 });
