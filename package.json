@@ -12,8 +12,10 @@
     "bourbon": "^4.2.7",
     "breakpoint-sass": "^2.7.1",
     "jquery": "^2.2.3",
+    "lunr": "^0.7.2",
     "normalize.css": "^4.1.1",
-    "typi": "^3.0.0-alpha.1"
+    "typi": "^3.0.0-alpha.1",
+    "underscore": "^1.8.3"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.6",
