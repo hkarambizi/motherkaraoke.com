@@ -25,6 +25,7 @@
   }
 
   &__input {
+    min-width: 0;
     margin-right: 10px;
     background-color: #fff;
     border: 1px solid $color__gray;
