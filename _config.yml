@@ -1,5 +1,5 @@
 url: "" # the base hostname & protocol for your site
-baseurl: "/motherkaraoke.com" # the subpath of your site, e.g. /blog/
+baseurl: "" # the subpath of your site, e.g. /blog/
 
 title: Mother Karaoke
 description: A searchable index of karaoke songs for Mother in Atlanta, GA.
