@@ -1,6 +1,6 @@
 {
   "name": "MotherKaraoke.com",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Karaoke search site for Mother in Atlanta, GA.",
   "main": "",
   "scripts": {
@@ -11,8 +11,8 @@
   "dependencies": {
     "bourbon": "^4.2.7",
     "breakpoint-sass": "^2.7.1",
+    "fuse.js": "^2.6.1",
     "jquery": "^2.2.3",
-    "lunr": "^0.7.2",
     "normalize.css": "^4.1.1",
     "typi": "^3.0.0-alpha.1",
     "underscore": "^1.8.3"
