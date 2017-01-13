@@ -2,33 +2,40 @@
 
 var $ = require('jquery');
 var _ = require('underscore');
-var lunr = require('lunr');
+var fusejs = require('fuse.js');
 
-// Initialize lunr with the fields to be searched, plus any boost.
-window.idx = lunr(function () {
-  this.field('artist');
-  this.field('title');
-  this.ref('id');
-  this.field('styles');
-});
+var searchData, fuse;
+// Initialize fuse.js options
+var options = {
+  shouldSort: true,
+  threshold: 0.1,
+  location: 0,
+  distance: 100,
+  maxPatternLength: 32,
+  minMatchCharLength: 1,
+  keys: [
+    "artist",
+    "title"
+  ]
+};
 
 // Get the generated search_data.json file so lunr.js can search it locally.
-window.search_data = $.ajax({
+searchData = $.ajax({
   url: './search_data.json',
   type: "GET", // default is GET but you can use other verbs based on your needs.
   dataType: "json", // specify the dataType for future reference
 });
-window.search_data.done(successHandler);
+searchData.done(successHandler);
 function successHandler (data) {
-  $.each(data, function(key, value){
-    window.idx.add(
-      $.extend({ "id": key }, value)
-    );
-  });
+  var i = _(data).toArray();
+
+  fuse = new fusejs(i, options); // "list" is the item array
 }
 
 function display_search_results(results) {
-  console.log('DISPLAY RESULTS :: ');
+  console.log("success");
+  console.log(results);
+
   var $placeholder = $('#js-search_results');
   var tests = _.sortBy(results, 'artist');
   var testg = _.groupBy(tests, 'artist');
@@ -48,6 +55,7 @@ function display_search_results(results) {
   });
   html_stuff += "</section>";
   $placeholder.empty().append(html_stuff);
+
 }
 
 $(function() {
@@ -55,21 +63,9 @@ $(function() {
   $("#js-songsearch").submit(function(event){
     event.preventDefault();
     var $query = $("#js-songsearch_input").val(); // Get the value for the text field
-    var lunrResults = window.idx.search($query); // Get lunr to perform a search
+    var fuseResults = fuse.search($query); // Get fuse.js to perform a search
 
-    // Wait for data to load
-    window.search_data.then(function(loaded_data) {
-      var search_results = [];
-
-      // Iterate over the results and add to the results array
-      lunrResults.forEach(function(result) {
-        var item = loaded_data[result.ref];
-        search_results.push(item);
-      });
-
-      display_search_results(search_results); // Hand the results off to be displayed
-
-    });
+    display_search_results(fuseResults); // Hand the results off to be displayed
 
   });
 
