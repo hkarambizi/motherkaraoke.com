@@ -1,0 +1,22 @@
+/* ==========================================================================
+   #TYPOGRAPHY
+   ========================================================================== */
+
+/**
+ * Color Palette variables.
+ *
+ * 1. Set the default serif font family.
+ * 2. Set the default sans-serif font family.
+ * 3. Set an alternate font (a sans-serif) to use elsewhere on the site.
+ * 4. Set the default font-size and line-height.
+ */
+
+// Font Family
+$font__family--serif: 'Bitter', serif;
+$font__family--sans: 'Open Sans', sans-serif;
+
+// Font Sizes
+$font__size--base: 1em;
+
+// Line height
+$font__line-height: 1.5;
