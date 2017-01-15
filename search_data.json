@@ -1,11 +1,11 @@
 ---
 ---
-{
+[
 {% for song in site.data.catalog %}
-  "{{song.id}}": {
+  {
     "artist": "{{ song.artist }}",
-    "title": "{{ song.title }}"
+    "title": "{{ song.song }}"
   }
   {% unless forloop.last %},{% endunless %}
 {% endfor %}
-}
+]
