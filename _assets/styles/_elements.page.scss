@@ -26,5 +26,6 @@ html {
   overflow-y: scroll; /* [2] */
 }
 body {
+  padding-bottom: vr(.5);
   background-color: $color__gray; /* [4] */
 }
