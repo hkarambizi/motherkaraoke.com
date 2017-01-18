@@ -1,110 +1,86 @@
-/*------------------------------------*\
-    #MAIN
-\*------------------------------------*/
+/* ==========================================================================
+   MAIN IMPORT
+   ========================================================================== */
 
 /**
+ * Mother Karaoke Search Site
+ *
+ * github.com/babycourageous/motherkaraoke.com
+ */
+
+/**
+ * This is the main manifest file. Make any additions, extensions, and
+ * modifications here.
+ */
+
+/**
+ * CONTENTS
+ *
  * SETTINGS
- * Config...............Project-level config.
- * Breakpoints..........Project-specific, globally available breakpoints.
- * Colors...............Project-specific, globally available colors.
- * Transitions..........Project-specific, globally available animation defaults.
- * Typography...........Project-specific, globally available typography defaults.
+ * Global...............Project-wide variables and settings.
+ * Colors...............Project-wide colors.
+ * Typography...........Project-wide fonts.
+ * Transitions..........Project-wide transition settings.
+ * Breakpoints..........Project-wide breakpoint map.
+
  *
  * TOOLS
- * Bourbon..............Mixin Library.
+ * Bourbon..............Mixin library.
+ * Breakpoint...........Breakpoint manager plugin.
+ * Modular Scale........Modular Scale calculator plugin.
+ * Typi.................Responsive Typography and Vertical Rhythm plugin.
+ * Mixins...............Project-specific mixins.
  *
  * GENERIC
- * Normalize.css........Normalise browser defaults…
- * Reset................…and zero them out.
- * Box-sizing...........More manageable box-model.
- * Breakpoint...........Breakpoint manager plugin.
- * Modular Scale........Modular Scale plugin.
- * Typi.................Typography and Vertical Rhythm plugin.
+ * Normalize.css........A level playing field using @necolas’ Normalize.css.
+ * Reset................A tiny reset to complement Normalize.css.
+ * Box-sizing...........Better default `box-sizing`.
  *
  * ELEMENTS
- * Headings.............H1–H6
- * Forms................Element-level form styling.
+ * Page.................Set up our document’s default `font-size` and
+ *                      `line-height`.
+ * Typography...........Very minimal (i.e. only font-size information) for
+ *                      headings 1 through 6 and p.
  *
  * OBJECTS
- * Layout...............Simple Layout abstraction tool.
- * List-bare............‘Unstyled’ lists: bullets and indent removed.
- * List-pair............Simple key–value pair list.
- * Pack.................Force elements to pack up into all available space.
+ * Wrapper..............Page constraint object.
+ * List-bare............Lists with no bullets or indents.
+ * List-inline..........A list whose items all site in a line.
+ * Box..................Simple boxing abstraction.
+ * Block................Image-on-top-of-text object.
  *
  * COMPONENTS
- * Forms................Component-level form styling.
- * Buttons..............Element-agnostic button styles.
- * Comments.............Comment styles.
- * Messaging............User feedback messaging.
  *
- * TRUMPS
- * Typography...........Utilities for manipulating text.
- * Display..............Helper classes for showing or hiding content.
- * Widths...............Width helper classes for use with our Layout system.
  *
+ * UTILITIES
  */
 
-// #SETTINGS
-@import "settings.breakpoints";
-@import "settings.colors";
-@import "settings.transitions";
-@import "settings.typography";
+ // #SETTINGS
+ @import "settings.global";
+ @import "settings.colors";
+ @import "settings.typography";
+ @import "settings.transitions";
+ @import "settings.breakpoints";
 
-// #TOOLS
-@import 'bourbon';
+ // #TOOLS
+ @import 'bourbon';
 
-// #GENERIC
-@import 'normalize';
-@import "generic.reset";
-@import "generic.box-sizing";
-@import 'breakpoint';
-@import 'modular-scale';
-@import "typi";
+ // #GENERIC (and plugins)
+ @import 'normalize';
+ @import "generic.reset";
+ @import "generic.box-sizing";
+ @import 'breakpoint';
+ @import 'modular-scale';
+ @import "typi";
 
-// #ELEMENTS
+ // #ELEMENTS
+ @import "elements.page";
+ @import "elements.typography";
 
+ // #OBJECTS
+ @import "objects.wrapper";
 
-
-
-
-
-
-
-
-
-/*
- * 2- PLUGINS
- */
-@import 'normalize';
-@import 'bourbon';
-@import 'breakpoint';
-@import 'modular-scale';
-@import 'typi';
-
-/*
- * 1- UTILS
- */
-@import 'utils/variables';
-@import 'utils/mixins';
-@import 'utils/functions';
-
- /*
- * 3- BASE
- */
-@import "base/base";
-@import "base/typography";
-
-/*
- * 4- LAYOUT
- */
-@import "layout/main";
-@import "layout/header";
-
-/*
- * 5- MODULES
- */
-@import "modules/search";
-
- /*
- * 6- PAGES
- */
+// #COMPONENTS
+@import "components.header";
+@import "components.search";
+@import "components.search-results";
