@@ -1,0 +1,20 @@
+/* ==========================================================================
+   #WRAPPER
+   ========================================================================== */
+
+/**
+ * Page-level constraining and wrapping elements.
+ *
+ * These use Lost Grid as the codebase
+ */
+
+ // General
+ $layout__max-width: 40em;
+ $layout__padding: em(10);
+
+.l-container {
+  padding-left: $layout__padding;
+  padding-right: $layout__padding;
+  margin: 0 auto;
+  max-width: $layout__max-width;
+}

@@ -40,16 +40,16 @@ function display_search_results(results) {
   var tests = _.sortBy(results, 'artist');
   var testg = _.groupBy(tests, 'artist');
   var html_stuff = "";
-  html_stuff = '<h2 class="search__heading">Search Results</h2><section class="search__list">'
+  html_stuff = '<h2 class="c-search__heading">Search Results</h2><section class="c-search__list">'
   $.each( testg, function( key, value ) {
     console.log( key + ": " );
     console.log('value = ' + value);
-    html_stuff += '<p class="search__artist">' + key + '</p><ul>';
+    html_stuff += '<p class="c-search__artist">' + key + '</p><ul>';
     var val = _.sortBy(value, 'title');
     $.each(val, function(k, v) {
       console.log(k + ":::" + v.title);
 
-      html_stuff += '<li class="search__title">' + v.title + '</li>';
+      html_stuff += '<li class="c-search__title">' + v.title + '</li>';
     });
     html_stuff += '</ul>';
   });

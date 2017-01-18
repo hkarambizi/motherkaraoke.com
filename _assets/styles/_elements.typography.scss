@@ -1,0 +1,107 @@
+/* ==========================================================================
+   #TYPOGRAPHY
+   ========================================================================== */
+
+/**
+ * Simple default styles for H1 through H6 and p. Anything more opinionated
+ * than simple font-size changes should likely be applied via classes (see:
+ * http://csswizardry.com/2016/02/managing-typography-on-large-apps/).
+ */
+
+/**
+ * We have all of our heading font sizes defined here. Using the TYPI library
+ * will generate a rem-based `font-size` with a pixel fallback, as well as
+ * generate a `line-height` that will sit on our baseline grid.
+ */
+
+// Modular Scale
+$ms-base: 1em;
+$ms-ratio: $fourth;
+
+// Preconfigure these settings before the @import of this file.
+
+$heading__font-family: $font__family--serif;
+$heading__font-size-1: ms(1);
+$heading__font-size-2: ms(2);
+$heading__font-size-3: ms(1);
+$heading__font-size-4: ms(1);
+$heading__font-size-5: ms(1);
+$heading__font-size-6: ms(1);
+$heading__color:       $color__gray--dark;
+
+// If you use breakpoint
+$typi-breakpoint: breakpoint;
+
+// TYPI map
+$typi: (
+  base: (
+    null: (16px, 1.5),
+    small: (18px),
+    medium: (18px),
+    large: (20px),
+    xl: (20px),
+  ),
+  h1: (
+    null: ($heading__font-size-1, 1.2)
+  ),
+  h2: (
+    null: ($heading__font-size-2, 1.2)
+  ),
+  h3: (
+    null: ($heading__font-size-3, 1.2)
+  ),
+  h4: (
+    null: ($heading__font-size-4, 1.2)
+  ),
+  h5: (
+    null: ($heading__font-size-5, 1.2)
+  ),
+  h6: (
+    null: ($heading__font-size-6, 1.2)
+  )
+);
+
+// Initialize Typi - this will set all the base HTML font sizes
+@include typi-init;
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $heading__font-family;
+  color: $heading__color;
+}
+
+p {
+  margin-bottom: vr(1);
+  color: $color__gray;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+h1 {
+  @include typi('h1');
+}
+
+h2 {
+  @include typi('h2');
+}
+
+h3 {
+  @include typi('h3');
+}
+
+h4 {
+  @include typi('h4');
+}
+
+h5 {
+  @include typi('h5');
+}
+
+h6 {
+  @include typi('h6');
+}
+p {
+  font-family: $font__family--sans;
+  color: $color__gray--light;
+}
