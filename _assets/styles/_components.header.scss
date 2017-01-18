@@ -1,0 +1,28 @@
+$header__height: 100px;
+$header__spacing: 10px;
+$header-background: $color__gray--dark;
+$header-color: $color__primary--alt;
+$header-border-color: $color__primary;
+
+.c-header {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  align-items: center;
+
+  background-color: $header-background;
+  background-image: url(images/logo.png);
+  background-repeat: no-repeat;
+  background-position: left center;
+
+  border-bottom: $header__spacing solid $header-border-color;
+  height: $header__height;
+  padding-left: $header__height;
+  padding-right: $header__spacing;
+
+  &__heading {
+    color: $header-color;
+    text-align: right;
+    text-transform: uppercase;
+  }
+}
