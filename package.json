@@ -4,7 +4,10 @@
   "description": "Karaoke search site for Mother in Atlanta, GA.",
   "main": "",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "gulp": "gulp",
+    "tasks": "gulp --tasks",
+    "serve": "gulp serve",
+    "test": "gulp styles --env=development"
   },
   "author": "René Dellefont",
   "license": "ISC",
@@ -19,10 +22,13 @@
   },
   "devDependencies": {
     "autoprefixer": "^6.3.6",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-register": "^6.24.1",
+    "babelify": "^7.3.0",
     "browser-sync": "^2.12.3",
     "browserify": "^13.0.0",
     "del": "^2.2.0",
-    "gulp": "^3.9.1",
+    "gulp": "gulpjs/gulp.git#4.0",
     "gulp-cssnano": "^2.1.2",
     "gulp-imagemin": "^2.4.0",
     "gulp-jshint": "^2.0.0",
@@ -44,6 +50,7 @@
     "svgmin": "^0.1.0",
     "uglify": "^0.1.5",
     "vinyl-buffer": "^1.0.0",
-    "vinyl-source-stream": "^1.1.0"
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^3.9.0"
   }
 }
