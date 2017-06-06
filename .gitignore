@@ -125,3 +125,7 @@ Gemfile.lock
 #.rvmrc
 
 # End of https://www.gitignore.io/api/ruby
+
+.babelrc
+.eslintrc
+.tern-project
