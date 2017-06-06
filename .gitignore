@@ -128,3 +128,4 @@ Gemfile.lock
 
 .babelrc
 .eslintrc
+.tern-project
