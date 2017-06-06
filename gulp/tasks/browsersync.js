@@ -16,9 +16,9 @@ const serverStart = (done) => {
 const serverStream = () => {
   server.stream();
 };
-
+/*
 const serverWatch = (done) => {
   // server.watch()
 };
-
+*/
 export { server, serverReload, serverStart, serverStream };
