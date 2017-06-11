@@ -1,7 +1,3 @@
-/**
- * Main Javascript file
- * Place all require statements here
- *
- * require('./FILENAME.js');
- */
-require('./_search.js');
+import './az-search';
+import './search';
+import './results';
