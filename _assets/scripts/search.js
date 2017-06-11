@@ -16,7 +16,7 @@ function searchHandler(evt) {
   if (searchTerm !== '') {
     api.searchByName(searchTerm)
       .then((songList) => {
-        PubSub.publish('searchComplete', songList);
+        PubSub.publish('searchComplete', { songList, searchTerm });
       });
   }
 }

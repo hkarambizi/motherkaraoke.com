@@ -13,7 +13,7 @@ function letterClickHandler(evt) {
 
   api.findArtistsByLetter(theLetter)
     .then((songList) => {
-      PubSub.publish('searchComplete', songList);
+      PubSub.publish('searchComplete', { songList, searchTerm: theLetter });
     });
 }
 
