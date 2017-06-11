@@ -1,0 +1,17 @@
+.c-az {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  &__item {
+    text-decoration: underline;
+    cursor: pointer;
+    margin: {
+      //right: 15px;
+      bottom: 10px;
+    }
+  }
+  &__letter {
+    padding: 10px;
+  }
+}

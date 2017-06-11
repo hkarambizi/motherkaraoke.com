@@ -1,0 +1,63 @@
+.c-search {
+  padding: 0 em(10) em(20);
+
+  &__heading {
+    color: $color__primary--alt;
+    font-size: ms(2);
+    text-align: center;
+  }
+
+  &__list {
+    border: 2px solid $color__gray--dark;
+    text-align: center;
+  }
+
+  &__artist {
+    position: relative;
+
+    margin-bottom: 0;
+    padding: vr(.5);
+
+    font-family: $font__family--serif;
+    color: #fff;
+
+    background-color: $color__primary;
+
+    &:after {
+      position: absolute;
+      left: 50%;
+      bottom: -5px;
+      z-index: 10;
+
+      content: '';
+
+      width: 10px;
+      height: 10px;
+
+      background: inherit;
+
+      transform: translateX(-50%) rotate(45deg);
+      pointer-events: none;
+    }
+  }
+
+  &__title {
+    margin: 0;
+    padding: vr(.5);
+
+    font-family: $font__family--sans;
+
+    list-style: none;
+    //background-color: $color__gray--light;
+    //color: $color__gray;
+
+    &:nth-child(odd) {
+      color: $color__gray;
+      background-color: $color__gray--light;
+    }
+    &:nth-child(even) {
+      color: #fff;
+      background-color: $color__gray--dark;
+    }
+  }
+}
