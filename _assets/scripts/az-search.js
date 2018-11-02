@@ -9,7 +9,8 @@ var selectedArtist = document.getElementById('js-artist__input');
 var selectedSong = document.getElementById('js-song__input');
 var name = document.getElementById('js-name__input');
 var phone = document.getElementById('js-phone__input');
-
+var search = document.querySelector('.c-searchform__inputs');
+var searchInput = document.querySelector('.c-searchform__input');
 // Code for Song Request Submit
 const requestForm = document.querySelector('#js-songpick');
 
@@ -17,14 +18,23 @@ function getSong(e) {
   return e.target;
 }
 
-var selection = function(title, artist){
+var selection = function(title, artist, name, phone){
   this.title = title;
   this.artist = artist;
+  this.name = name;
+  this.phone = phone;
 }
 function fillForm(obj){
   form.classList.remove('u-hidden');
   selectedArtist.value = obj.artist;
   selectedSong.value = obj.title;
+}
+function resetForm(e) {
+  name.value = "";
+  phone.value = "";
+  form.classList.add('u-hidden');
+  console.log('reset form');
+
 }
 
 function getData(e){
@@ -32,9 +42,9 @@ function getData(e){
   title = e.target;
   artistSongs = title.parentNode.parentNode;
   artist = artistSongs.previousSibling;
-  console.log(title.innerHTML);
-  console.log(artist.innerHTML);
-  var data = new selection(title.innerHTML, artist.innerHTML);
+  console.log(title.textContent);
+  console.log(artist.textContent);
+  var data = new selection(title.textContent, artist.textContent, name.value ? name.value: "", phone.value ? phone.value : "");
   console.log(data);
   fillForm(data);
 }
@@ -47,8 +57,8 @@ function submitRequest(evt) {
     form.previousSibling.innerHTML = "Please fill out all of the fields";
   } else {
     var request = Object.assign({
-      name: name.value,
-      phone: phone.value,
+      name: name.value.toLowerCase(),
+      phone: phone.value.replace(/-/g, ""),
       artist: selectedArtist.value,
       song: selectedSong.value
     });
@@ -87,4 +97,6 @@ function initLetterMenu() {
 letterMenuContainer.innerHTML = initLetterMenu();
 delegateEventListener(letterMenuContainer, 'click', 'a', letterClickHandler);
 delegateEventListener(songTitles, 'click', 'a', getData);
+// delegateEventListener(searchInput, 'focus', '.c-searchform__input', resetForm);
 requestForm.addEventListener('submit', submitRequest);
+searchInput.addEventListener('focus', resetForm);
