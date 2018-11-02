@@ -2,9 +2,10 @@
     padding: em(10) 0 em(20) 0;
     border-radius: 10px;
   
-    background-color: $color__primary;
+    background-color: #121212;
   
     &__container {
+      text-align: center;
       margin: 15px auto 10px;
       //padding: 0 em(10);
       max-width: 40em;
@@ -12,10 +13,10 @@
   
     &__label {
       display: block;
-  
+      color: $color__yellow--light;
+      margin: .5em;
       font-family: $font__family--serif;
       font-size: ms(1);
-      color: $color__gray--dark;
       text-align: center;
     }
   
@@ -24,7 +25,8 @@
       text-align: center;
       clear: right;
       margin: 0 auto;
-      max-width: 30em;
+      max-width: 75em;
+      min-width: 18em;
       padding: 0 em(10);
     }
   
@@ -53,6 +55,8 @@
     &__submit {
       border: 1px solid $color__gray;
       border-radius: 5px;
+      padding: .5em;
+      margin: 1em;
   
       font-family: $font__family--serif;
       font-weight: 400;
@@ -62,4 +66,9 @@
       //flex: 0 0 auto;
     }
   }
-  
+  #js-artist__input {
+    background-color: #CCC;
+  }
+  #js-song__input {
+    background-color: #CCC;
+  }

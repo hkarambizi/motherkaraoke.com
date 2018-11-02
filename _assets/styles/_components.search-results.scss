@@ -58,6 +58,9 @@
     &:nth-child(even) {
       color: #fff;
       background-color: $color__gray--dark;
+      a {
+        color: $color__primary--alt;
+      }
     }
   }
 }
