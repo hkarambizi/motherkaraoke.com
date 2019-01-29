@@ -17,6 +17,7 @@
     "babel-eslint": "^7.2.3",
     "bourbon": "^4.2.7",
     "breakpoint-sass": "^2.7.1",
+    "dotenv": "^6.2.0",
     "firebase": "^5.8.1",
     "fuse.js": "^2.6.1",
     "jekyll": "^3.0.0-beta1",
