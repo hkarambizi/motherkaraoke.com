@@ -1,18 +1,11 @@
-// require("dotenv").config();
+import { FIREBASE_CONFIG } from "./../../SECURE";
 import * as firebase from "firebase";
 import { delegateEventListener } from "./helpers/events";
 import PubSub from "./pubsub";
 import * as api from "./api";
 
 // Initialize Firebase
-var config = {
-  apiKey: "AIzaSyDveRydLsydAnfe3Zb64zoAtO_SifUJyII",
-  authDomain: "bored-games-manager.firebaseapp.com",
-  databaseURL: "https://bored-games-manager.firebaseio.com",
-  projectId: "bored-games-manager",
-  storageBucket: "bored-games-manager.appspot.com",
-  messagingSenderId: "128757415908"
-};
+var config = FIREBASE_CONFIG;
 
 // TO-DO: Controll access to secure variables
 // var config = {
