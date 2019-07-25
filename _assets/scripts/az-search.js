@@ -7,8 +7,7 @@ import * as api from "./api";
 
 // Initialize Firebase
 // var config = FIREBASE_CONFIG;
-console.log(process.env);
-// TO-DO: Controll access to secure variables
+// TO-DO: Control access to secure variables
 var config = {
   apiKey: "AIzaSyDveRydLsydAnfe3Zb64zoAtO_SifUJyII",
   authDomain: "bored-games-manager.firebaseapp.com",
@@ -31,6 +30,7 @@ var name = document.getElementById("js-name__input");
 var phone = document.getElementById("js-phone__input");
 var search = document.querySelector(".c-searchform__inputs");
 var searchInput = document.querySelector(".c-searchform__input");
+const searchForm = document.querySelector('#js-songsearch');
 // Code for Song Request Submit
 const requestForm = document.querySelector("#js-songpick");
 
@@ -56,6 +56,7 @@ function resetForm(e) {
   phone.value = "";
   form.classList.add("u-hidden");
   console.log("reset form");
+
 }
 
 function getData(e) {
@@ -105,10 +106,11 @@ function submitRequest(evt) {
           .then(querySnapshot => {
             console.log("Here are all current requests");
             querySnapshot.forEach(doc => {
-              console.log(`Request#: ${doc.id} => ${doc.data()}`);
+              console.log("Request#: ", doc.id, doc.data());
             });
           });
         resetForm();
+        searchForm.reset();
       })
       .catch(function (error) {
         console.error("Error adding document: ", error);
