@@ -1,21 +1,22 @@
 import * as firebase from "firebase";
-import { delegateEventListener } from "./helpers/events";
+import {
+  delegateEventListener
+} from "./helpers/events";
 import PubSub from "./pubsub";
 import * as api from "./api";
 
 // Initialize Firebase
 // var config = FIREBASE_CONFIG;
-
+console.log(process.env);
 // TO-DO: Controll access to secure variables
 var config = {
-  apiKey: process.env.FIREBASE_API_KEY,
-  authDomain: process.env.FIREBASE_AUTH_DOMAIN,
-  databaseURL: process.env.FIREBASE_DB_URL,
-  projectId: process.env.FIREBASE_PROJECT_ID,
-  storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: process.env.FIREBASE_MSG_SENDER_ID
+  apiKey: "AIzaSyDveRydLsydAnfe3Zb64zoAtO_SifUJyII",
+  authDomain: "bored-games-manager.firebaseapp.com",
+  databaseURL: "https://bored-games-manager.firebaseio.com",
+  projectId: "bored-games-manager",
+  storageBucket: "bored-games-manager.appspot.com",
+  messagingSenderId: "128757415908"
 };
-
 firebase.initializeApp(config);
 
 // Initialize Cloud Firestore through Firebase
@@ -37,17 +38,19 @@ function getSong(e) {
   return e.target;
 }
 
-var selection = function(title, artist, name, phone) {
+var selection = function (title, artist, name, phone) {
   this.title = title;
   this.artist = artist;
   this.name = name;
   this.phone = phone;
 };
+
 function fillForm(obj) {
   form.classList.remove("u-hidden");
   selectedArtist.value = obj.artist;
   selectedSong.value = obj.title;
 }
+
 function resetForm(e) {
   name.value = "";
   phone.value = "";
@@ -76,6 +79,7 @@ function disableSubmit() {
   var submitButton = document.querySelector(".c-pickform__submit");
   submitButton.disabled = true;
 }
+
 function submitRequest(evt) {
   const e = evt || window.event;
   e.preventDefault();
@@ -84,16 +88,17 @@ function submitRequest(evt) {
   if (selectedArtist.value === "" || selectedSong.value === "") {
     form.previousSibling.innerHTML = "Please fill out all of the fields";
   } else {
+    const now = new Date();
     var request = Object.assign({
       name: name.value.toLowerCase(),
       phone: phone.value.replace(/-/g, ""),
       artist: selectedArtist.value,
       song: selectedSong.value,
-      created: Date.now()
+      created: firebase.firestore.Timestamp.fromDate(now)
     });
     db.collection("requests")
       .add(request)
-      .then(function(docRef) {
+      .then(function (docRef) {
         console.log("Document written with ID: ", docRef.id);
         db.collection("requests")
           .get()
@@ -105,7 +110,7 @@ function submitRequest(evt) {
           });
         resetForm();
       })
-      .catch(function(error) {
+      .catch(function (error) {
         console.error("Error adding document: ", error);
       });
     console.log(request);
@@ -121,7 +126,10 @@ function letterClickHandler(evt) {
   const theLetter = this.dataset.letter;
 
   api.findArtistsByLetter(theLetter).then(songList => {
-    PubSub.publish("searchComplete", { songList, searchTerm: theLetter });
+    PubSub.publish("searchComplete", {
+      songList,
+      searchTerm: theLetter
+    });
   });
 }
 
@@ -133,7 +141,7 @@ function initLetterMenu() {
   const htmlList = sortedList
     .map(
       item =>
-        `<li class="o-list-inline__item c-az__item"><a class="c-az__letter" data-letter="${item}">${item}</a></li>`
+      `<li class="o-list-inline__item c-az__item"><a class="c-az__letter" data-letter="${item}">${item}</a></li>`
     )
     .join("");
   // container.innerHTML = `<ul class="o-list-inline c-az">${htmlList}</ul>`;

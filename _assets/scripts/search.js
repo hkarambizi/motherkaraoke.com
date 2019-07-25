@@ -10,15 +10,24 @@ function clearSearch() {
 
 function searchHandler(evt) {
   const e = evt || window.event;
-  e.preventDefault();
 
-  const searchTerm = searchInput.value;
-  if (searchTerm !== '') {
-    api.searchByName(searchTerm)
-      .then((songList) => {
-        PubSub.publish('searchComplete', { songList, searchTerm });
-      });
+  try {
+    const searchTerm = searchInput.value;
+    if (searchTerm !== '') {
+      api.searchByName(searchTerm)
+        .then((songList) => {
+          PubSub.publish('searchComplete', {
+            songList,
+            searchTerm
+          });
+        });
+    }
+  } catch (err) {
+    alert(err);
+    console.log(err);
   }
+  e.preventDefault();
+  e.stopImmediatePropagation()
 }
 
 function onSearchStart(ps) {
@@ -32,6 +41,7 @@ function onSearchStart(ps) {
 searchForm.addEventListener('submit', searchHandler);
 PubSub.subscribe('searchStart', onSearchStart);
 
+console.log(searchForm);
 /*
 
 

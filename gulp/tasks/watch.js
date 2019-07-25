@@ -1,12 +1,22 @@
-import { watch, series } from 'gulp';
+import {
+  watch,
+  series
+} from 'gulp';
 import styles from './styles';
 import images from './images';
 // import bundle from './scripts';
 import svg from './svg';
-import { jekyllserve } from './jekyll';
-import { serverReload } from './browsersync';
+import {
+  jekyllserve
+} from './jekyll';
+import {
+  serverReload
+} from './browsersync';
+const log = require('fancy-log');
 
-import { watch as config } from '../config';
+import {
+  watch as config
+} from '../config';
 
 const watching = () => {
   // WATCH Jekyll related files
@@ -17,7 +27,7 @@ const watching = () => {
 
   // WATCH js --> build:scripts:serve
   // watch(config.scripts, series(bundle, serverReload));
-
+  log("CONFIG: ", config);
   // watch images --> images
   watch(config.images, series(images, serverReload));
 
