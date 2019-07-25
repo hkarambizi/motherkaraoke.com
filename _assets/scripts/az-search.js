@@ -1,4 +1,3 @@
-import { FIREBASE_CONFIG } from "./../../SECURE";
 import * as firebase from "firebase";
 import { delegateEventListener } from "./helpers/events";
 import PubSub from "./pubsub";

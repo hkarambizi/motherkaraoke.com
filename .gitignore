@@ -132,3 +132,5 @@ Gemfile.lock
 .babelrc
 .eslintrc
 .tern-project
+assets/scripts.min.js
+assets/styles.min.css
