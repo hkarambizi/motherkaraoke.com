@@ -134,3 +134,4 @@ Gemfile.lock
 .tern-project
 assets/scripts.min.js
 assets/styles.min.css
+.env
