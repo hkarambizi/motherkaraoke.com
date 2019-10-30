@@ -1,4 +1,7 @@
 # Created by https://www.gitignore.io/api/jekyll,osx,node
+## Vars
+.env
+SECURE.js
 
 ### OSX ###
 .DS_Store
@@ -129,3 +132,6 @@ Gemfile.lock
 .babelrc
 .eslintrc
 .tern-project
+assets/scripts.min.js
+assets/styles.min.css
+.env

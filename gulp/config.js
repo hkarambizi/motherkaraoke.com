@@ -1,17 +1,18 @@
 const config = {};
+const log = require('fancy-log');
 
-config.app =     './',             // The files Jekyll will work on
-config.dist =    '_site',          // The resulting static site
-config.assets =  '_assets',        // The files Gulp will work on
-config.nodedir = 'node_modules',   // npm directory for any external linked files
+config.app = './', // The files Jekyll will work on
+  config.dist = '_site', // The resulting static site
+  config.assets = '_assets', // The files Gulp will work on
+  config.nodedir = 'node_modules', // npm directory for any external linked files
 
-config.bsync = {
-  server: {
-    baseDir: config.dist, // the folder to serve
-  },
-  // Don't show any notifications in the browser.
-  notify: false,
-};
+  config.bsync = {
+    server: {
+      baseDir: config.dist, // the folder to serve
+    },
+    // Don't show any notifications in the browser.
+    notify: false,
+  };
 
 config.images = {
   src: `${config.assets}/images/**/*`,
@@ -73,8 +74,8 @@ config.svg = {
     },
 
     mode: {
-      inline: true,     // Prepare for inline embedding
-      symbol: true,      // Create a «symbol» sprite
+      inline: true, // Prepare for inline embedding
+      symbol: true, // Create a «symbol» sprite
     },
   }
 };
@@ -83,6 +84,7 @@ config.watch = {
   styles: `${config.assets}/styles/**/*.+(sass|scss)`,
   scripts: `${config.assets}/scripts/**/*.js`,
   images: `${config.assets}/images/**/*.+(jpg|png|jpeg|gif)`,
+  svg: `${config.assets}/svg/**/*`,
   jekyll: [
     '_config.yml',
     '_layouts/*',
@@ -102,5 +104,4 @@ config.jekyll = {
     '**/*.html', '**/*.md', '!_site/**/*.*',
   ],
 };
-
 module.exports = config;
