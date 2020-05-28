@@ -92,7 +92,8 @@ function submitRequest(evt) {
       phone: phone.value.replace(/-/g, ""),
       artist: selectedArtist.value.trim(),
       song: selectedSong.value.trim(),
-      created: firebase.firestore.Timestamp.fromDate(now)
+      created: firebase.firestore.Timestamp.fromDate(now),
+      status: 'submitted'
     });
     db.collection("requests")
       .add(request)
