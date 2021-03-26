@@ -10,7 +10,7 @@ function clearSearch() {
 
 function searchHandler(evt) {
   const e = evt || window.event;
-
+  e.preventDefault();
   try {
     const searchTerm = searchInput.value;
     if (searchTerm !== '') {

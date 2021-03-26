@@ -1,7 +1,5 @@
 import * as firebase from "firebase";
-import {
-  delegateEventListener
-} from "./helpers/events";
+import { delegateEventListener } from "./helpers/events";
 import PubSub from "./pubsub";
 import * as api from "./api";
 
@@ -30,7 +28,7 @@ var name = document.getElementById("js-name__input");
 var phone = document.getElementById("js-phone__input");
 var search = document.querySelector(".c-searchform__inputs");
 var searchInput = document.querySelector(".c-searchform__input");
-const searchForm = document.querySelector('#js-songsearch');
+const searchForm = document.querySelector("#js-songsearch");
 // Code for Song Request Submit
 const requestForm = document.querySelector("#js-songpick");
 
@@ -38,7 +36,7 @@ function getSong(e) {
   return e.target;
 }
 
-var selection = function (title, artist, name, phone) {
+var selection = function(title, artist, name, phone) {
   this.title = title;
   this.artist = artist;
   this.name = name;
@@ -56,7 +54,6 @@ function resetForm(e) {
   phone.value = "";
   form.classList.add("u-hidden");
   console.log("reset form");
-
 }
 
 function getData(e) {
@@ -91,15 +88,16 @@ function submitRequest(evt) {
   } else {
     const now = new Date();
     var request = Object.assign({
-      name: name.value.toLowerCase(),
+      name: name.value.trim().toLowerCase(),
       phone: phone.value.replace(/-/g, ""),
-      artist: selectedArtist.value,
-      song: selectedSong.value,
-      created: firebase.firestore.Timestamp.fromDate(now)
+      artist: selectedArtist.value.trim(),
+      song: selectedSong.value.trim(),
+      created: firebase.firestore.Timestamp.fromDate(now),
+      status: 'submitted'
     });
     db.collection("requests")
       .add(request)
-      .then(function (docRef) {
+      .then(function(docRef) {
         console.log("Document written with ID: ", docRef.id);
         db.collection("requests")
           .get()
@@ -112,7 +110,7 @@ function submitRequest(evt) {
         resetForm();
         searchForm.reset();
       })
-      .catch(function (error) {
+      .catch(function(error) {
         console.error("Error adding document: ", error);
       });
     console.log(request);
@@ -143,7 +141,7 @@ function initLetterMenu() {
   const htmlList = sortedList
     .map(
       item =>
-      `<li class="o-list-inline__item c-az__item"><a class="c-az__letter" data-letter="${item}">${item}</a></li>`
+        `<li class="o-list-inline__item c-az__item"><a class="c-az__letter" data-letter="${item}">${item}</a></li>`
     )
     .join("");
   // container.innerHTML = `<ul class="o-list-inline c-az">${htmlList}</ul>`;
